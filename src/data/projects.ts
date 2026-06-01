@@ -165,6 +165,45 @@ export const projects: Project[] = [
     status: "Completed",
     featured: false,
   },
+  {
+    id: 14,
+    title: "Women Store",
+    description:
+      "A modern women's clothing e-commerce store with product browsing, shopping cart, and a clean checkout experience built with React.",
+    category: "E-Commerce",
+    technologies: ["React.js", "JavaScript", "CSS", "Vercel"],
+    github: "https://github.com/mdaniyal2021",
+    demo: "https://woman-store.vercel.app",
+    status: "Live",
+    featured: true,
+    image: "/images/website-01.avif",
+  },
+  {
+    id: 15,
+    title: "Movie App",
+    description:
+      "A movie discovery application that fetches real-time data from a public API, featuring search, filtering, and detailed movie info pages.",
+    category: "Web",
+    technologies: ["React.js", "REST API", "JavaScript", "CSS"],
+    github: "https://github.com/mdaniyal2021",
+    demo: "https://movie-app-beryl-kappa.vercel.app",
+    status: "Live",
+    featured: true,
+    image: "/images/website-02.avif",
+  },
+  {
+    id: 16,
+    title: "Shoe Store",
+    description:
+      "A stylish shoe e-commerce platform with product listings, category filtering, and a polished shopping cart and checkout flow.",
+    category: "E-Commerce",
+    technologies: ["React.js", "JavaScript", "TailwindCSS", "Vercel"],
+    github: "https://github.com/mdaniyal2021",
+    demo: "https://ecommerece-shoe.vercel.app",
+    status: "Live",
+    featured: true,
+    image: "/images/website-03.avif",
+  },
 ];
 
 export const categories = [

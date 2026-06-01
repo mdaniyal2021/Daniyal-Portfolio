@@ -1,11 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { FaLinkedin, FaGithub, FaInstagram, FaFacebook } from "react-icons/fa6";
 import Image from "next/image";
-
-const roles = ["Web Developer", "Frontend Engineer", "Full Stack Developer", "React Specialist"];
 
 const socialLinks = [
   { icon: FaLinkedin,  url: "https://www.linkedin.com/in/muhammad-daniyal-5521a7294?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app", label: "LinkedIn" },
@@ -14,32 +12,9 @@ const socialLinks = [
   { icon: FaFacebook,  url: "https://www.facebook.com/share/16QABnjKNt/?mibextid=wwXIfr", label: "Facebook" },
 ];
 
-const charVariants = {
-  hidden:  { x: -20, opacity: 0 },
-  visible: { x: 0,   opacity: 1 },
-};
-
 export default function Hero() {
-  const [roleIdx, setRoleIdx] = useState(0);
-  const [chars,   setChars]   = useState<string[]>(roles[0].split(""));
-
   const ref    = useRef(null);
   const inView = useInView(ref, { once: false });
-
-  useEffect(() => {
-    setChars(roles[roleIdx].split(""));
-  }, [roleIdx]);
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      setRoleIdx((prev) => (prev + 1) % roles.length);
-    }, 3000);
-    return () => clearInterval(id);
-  }, []);
-
-  const handleContact = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <section
@@ -77,33 +52,19 @@ export default function Hero() {
           className="w-full md:w-[50%] order-2 md:order-1"
         >
           {/* Name */}
-          <h2 className="flex flex-wrap items-center gap-x-2 text-3xl md:text-4xl font-bold text-white">
-            Hi It&apos;s{" "}
-            <span style={{ color: "var(--accent-fg)" }}>Muhammad Daniyal</span>
+          <h2 className="text-3xl md:text-4xl font-bold" style={{ color: "var(--accent-fg)" }}>
+            Muhammad Daniyal
           </h2>
 
-          {/* Animated role */}
-          <h3
-            className="text-2xl md:text-3xl font-bold text-white mt-5 flex flex-wrap items-center gap-x-2"
-            aria-live="polite"
-            aria-atomic="true"
-          >
-            I&apos;m a{" "}
-            <motion.span
-              key={roleIdx}
-              className="flex"
-              style={{ color: "var(--accent-fg)" }}
-              initial="hidden"
-              animate="visible"
-              variants={{ visible: { transition: { staggerChildren: 0.05 } } }}
-            >
-              {chars.map((char, i) => (
-                <motion.span key={i} variants={charVariants}>
-                  {char === " " ? " " : char}
-                </motion.span>
-              ))}
-            </motion.span>
+          {/* Subtitle */}
+          <h3 className="text-2xl md:text-3xl font-bold text-white mt-4">
+            Full Stack Developer &amp; AI/ML Engineer
           </h3>
+
+          {/* Tagline */}
+          <p className="mt-2 text-sm font-medium" style={{ color: "var(--accent-fg)", opacity: 0.85 }}>
+            I don&apos;t just build for the demo — I build for real use.
+          </p>
 
           {/* Bio */}
           <p className="text-white/80 text-sm leading-relaxed mt-5 text-justify">
@@ -144,7 +105,7 @@ export default function Hero() {
               Hire Me
             </button>
             <button
-              onClick={handleContact}
+              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
               className="w-full sm:w-40 h-11 rounded-3xl text-white font-medium transition-shadow duration-300 hover:shadow-[0px_0px_8px_4px_#7cc1b7]"
               style={{ border: "1px solid var(--accent-fg)" }}
             >

@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { FiExternalLink, FiCode } from "react-icons/fi";
+import { FiExternalLink } from "react-icons/fi";
 import { FaGithub } from "react-icons/fa6";
 import { projects, categories } from "@/data/projects";
 import Image from "next/image";
@@ -175,12 +175,12 @@ export default function Projects() {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn btn-ghost btn-sm flex-1 justify-center"
+                        className={`btn btn-ghost btn-sm justify-center ${project.demo ? "flex-1" : "w-full"}`}
                       >
                         <FaGithub size={14} />
-                        Source
+                        Source Code
                       </a>
-                      {project.demo ? (
+                      {project.demo && (
                         <a
                           href={project.demo}
                           target="_blank"
@@ -188,16 +188,8 @@ export default function Projects() {
                           className="btn btn-primary btn-sm flex-1 justify-center"
                         >
                           <FiExternalLink size={13} />
-                          Live
+                          Live Demo
                         </a>
-                      ) : (
-                        <span
-                          className="btn btn-sm flex-1 justify-center text-xs"
-                          style={{ background: "var(--surface-2)", color: "var(--subtle)", border: "1px solid var(--border)" }}
-                        >
-                          <FiCode size={13} />
-                          No Demo
-                        </span>
                       )}
                     </div>
                   </div>

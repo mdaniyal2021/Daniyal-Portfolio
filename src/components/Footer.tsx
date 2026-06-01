@@ -1,7 +1,7 @@
 "use client";
 
 import { FiMail } from "react-icons/fi";
-import { FaGithub, FaLinkedin, FaWhatsapp, FaInstagram, FaFacebook } from "react-icons/fa6";
+import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa6";
 
 const navLinks = [
   { id: "education",    label: "Education" },
@@ -13,12 +13,10 @@ const navLinks = [
 ];
 
 const socials = [
-  { href: "https://github.com/mdaniyal2021",                                                              icon: <FaGithub size={16} />,    label: "GitHub" },
-  { href: "https://www.linkedin.com/in/muhammad-daniyal-5521a7294/",                                     icon: <FaLinkedin size={16} />,  label: "LinkedIn" },
-  { href: "https://www.instagram.com/m.daniyal2021?igsh=aHRqd2JmZWxra2Zz&utm_source=qr",                icon: <FaInstagram size={16} />, label: "Instagram" },
-  { href: "https://www.facebook.com/share/16QABnjKNt/?mibextid=wwXIfr",                                  icon: <FaFacebook size={16} />,  label: "Facebook" },
-  { href: "https://wa.me/923047671720",                                                                   icon: <FaWhatsapp size={16} />,  label: "WhatsApp" },
-  { href: "mailto:m.daniyal2021@gmail.com",                                                               icon: <FiMail size={16} />,      label: "Email" },
+  { href: "https://github.com/mdaniyal2021",                        icon: <FaGithub size={16} />,   label: "GitHub" },
+  { href: "https://www.linkedin.com/in/muhammad-daniyal-5521a7294/", icon: <FaLinkedin size={16} />, label: "LinkedIn" },
+  { href: "https://wa.me/923047671720",                              icon: <FaWhatsapp size={16} />, label: "WhatsApp" },
+  { href: "mailto:m.daniyal2021@gmail.com",                          icon: <FiMail size={16} />,     label: "Email" },
 ];
 
 export default function Footer() {

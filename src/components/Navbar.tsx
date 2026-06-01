@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
 import { FaGithub } from "react-icons/fa6";
+import ThemeToggle from "@/components/ui/ThemeToggle";
 
 const links = [
   { id: "home",         label: "Home" },
@@ -12,7 +13,6 @@ const links = [
   { id: "services",     label: "Services" },
   { id: "skills",       label: "Skills" },
   { id: "projects",     label: "Projects" },
-  { id: "websites",     label: "My Work" },
   { id: "testimonials", label: "Testimonials" },
   { id: "contact",      label: "Contact" },
 ];
@@ -104,6 +104,8 @@ export default function Navbar() {
               <FaGithub size={15} />
               GitHub
             </a>
+
+            <ThemeToggle />
 
             <button
               onClick={() => setOpen(!open)}

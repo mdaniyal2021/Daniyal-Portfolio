@@ -22,7 +22,7 @@ export default function Testimonials() {
         >
           Social proof
         </motion.p>
-        <h2 className="heading-lg mb-10">Trusted by clients worldwide</h2>
+        <h2 className="heading-lg mb-10">By the numbers</h2>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {stats.map((s, index) => (
@@ -40,9 +40,6 @@ export default function Testimonials() {
           ))}
         </div>
 
-        <p className="text-center mt-8 text-sm" style={{ color: "var(--subtle)" }}>
-          Client testimonials coming soon — reach out to see references.
-        </p>
 
       </div>
     </section>

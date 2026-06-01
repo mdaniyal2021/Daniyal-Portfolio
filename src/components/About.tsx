@@ -76,8 +76,20 @@ export default function About() {
 
             {/* Contact info */}
             <motion.div className="space-y-3 mb-8" {...fade(0.15)}>
+              <div className="flex items-center gap-3 text-sm" style={{ color: "var(--muted)" }}>
+                <span style={{ color: "var(--accent-fg)" }}><FiMapPin size={14} /></span>
+                <span
+                  className="px-2.5 py-0.5 rounded-full text-xs font-semibold"
+                  style={{
+                    border:     "1px solid var(--accent-fg)",
+                    color:      "var(--accent-fg)",
+                    background: "rgba(124,193,183,0.08)",
+                  }}
+                >
+                  Pakistan · Remote Worldwide
+                </span>
+              </div>
               {[
-                { icon: <FiMapPin size={14} />, text: "Pakistan · Remote Worldwide" },
                 { icon: <FiMail size={14} />, text: "m.daniyal2021@gmail.com" },
                 { icon: <FiBriefcase size={14} />, text: "Open to freelance & full-time" },
               ].map((item, i) => (

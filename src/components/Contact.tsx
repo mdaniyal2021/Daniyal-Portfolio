@@ -8,7 +8,6 @@
 
 import { useState, useRef, FormEvent } from "react";
 import { motion, useInView } from "framer-motion";
-import { FiCheckCircle } from "react-icons/fi";
 import emailjs from "@emailjs/browser";
 
 export default function Contact() {
@@ -67,100 +66,93 @@ export default function Contact() {
             Contact Us
           </h2>
 
-          {sent ? (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="flex flex-col items-center justify-center text-center py-16 gap-4"
-            >
-              <FiCheckCircle size={52} style={{ color: "var(--accent-fg)" }} />
-              <div>
-                <h3 className="font-bold text-xl mb-1" style={{ color: "var(--text)" }}>Message sent!</h3>
-                <p className="text-sm" style={{ color: "var(--muted)" }}>
-                  I&apos;ll get back to you within 24 hours.
-                </p>
-              </div>
+          <form onSubmit={submit} className="flex flex-col lg:flex-row gap-8">
+
+            {/* Left: input fields */}
+            <div className="flex flex-col w-full lg:w-1/2 gap-4">
+              <input
+                name="name"
+                value={form.name}
+                onChange={change}
+                type="text"
+                placeholder="Full Name"
+                required
+                className="bg-transparent px-4 py-3 rounded-md outline-none text-white placeholder:text-[var(--subtle)] transition-all focus:shadow-[0px_0px_5px_2px_#7cc1b7]"
+                style={{ border: "1px solid var(--accent-fg)" }}
+              />
+              <input
+                name="email"
+                value={form.email}
+                onChange={change}
+                type="email"
+                placeholder="Email"
+                required
+                className="bg-transparent px-4 py-3 rounded-md outline-none text-white placeholder:text-[var(--subtle)] transition-all focus:shadow-[0px_0px_5px_2px_#7cc1b7]"
+                style={{ border: "1px solid var(--accent-fg)" }}
+              />
+              <input
+                name="phone"
+                value={form.phone}
+                onChange={change}
+                type="tel"
+                placeholder="Phone Number"
+                className="bg-transparent px-4 py-3 rounded-md outline-none text-white placeholder:text-[var(--subtle)] transition-all focus:shadow-[0px_0px_5px_2px_#7cc1b7]"
+                style={{ border: "1px solid var(--accent-fg)" }}
+              />
+              <input
+                name="subject"
+                value={form.subject}
+                onChange={change}
+                type="text"
+                placeholder="Subject"
+                required
+                className="bg-transparent px-4 py-3 rounded-md outline-none text-white placeholder:text-[var(--subtle)] transition-all focus:shadow-[0px_0px_5px_2px_#7cc1b7]"
+                style={{ border: "1px solid var(--accent-fg)" }}
+              />
+            </div>
+
+            {/* Right: message + submit */}
+            <div className="flex flex-col w-full lg:w-1/2 gap-4">
+              <textarea
+                name="message"
+                value={form.message}
+                onChange={change}
+                rows={10}
+                placeholder="Your Message"
+                required
+                className="bg-transparent px-4 py-3 rounded-md outline-none text-white placeholder:text-[var(--subtle)] resize-none transition-all focus:shadow-[0px_0px_5px_2px_#7cc1b7]"
+                style={{ border: "1px solid var(--accent-fg)" }}
+              />
               <button
-                onClick={() => setSent(false)}
-                className="mt-2 px-6 py-2 rounded-md font-medium transition-shadow duration-300 hover:shadow-[0px_0px_8px_4px_#7cc1b7]"
-                style={{ border: "1px solid var(--accent-fg)", color: "var(--text)" }}
+                type="submit"
+                disabled={loading}
+                className="w-full py-3 rounded-md font-semibold text-black transition-all duration-300 hover:bg-transparent hover:text-white hover:shadow-[0px_0px_8px_4px_#7cc1b7] disabled:opacity-60"
+                style={{
+                  background:  loading ? "var(--accent-bg)" : "var(--accent-fg)",
+                  border:      "1px solid var(--accent-fg)",
+                  color:       loading ? "var(--accent-fg)" : "#000",
+                }}
               >
-                Send another
+                {loading ? "Sending..." : "Submit"}
               </button>
+            </div>
+
+          </form>
+
+          {sent && (
+            <motion.div
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              className="mt-6 px-5 py-4 rounded-md text-center text-sm font-medium"
+              style={{
+                background: "rgba(16,185,129,0.10)",
+                border:     "1px solid rgba(16,185,129,0.45)",
+                color:      "#10b981",
+              }}
+            >
+              Thanks for reaching out! I&apos;ll get back to you within 24 hours.
             </motion.div>
-          ) : (
-            <form onSubmit={submit} className="flex flex-col lg:flex-row gap-8">
-
-              {/* Left: input fields */}
-              <div className="flex flex-col w-full lg:w-1/2 gap-4">
-                <input
-                  name="name"
-                  value={form.name}
-                  onChange={change}
-                  type="text"
-                  placeholder="Full Name"
-                  required
-                  className="bg-transparent px-4 py-3 rounded-md outline-none text-white placeholder:text-[var(--subtle)] transition-all focus:shadow-[0px_0px_5px_2px_#7cc1b7]"
-                  style={{ border: "1px solid var(--accent-fg)" }}
-                />
-                <input
-                  name="email"
-                  value={form.email}
-                  onChange={change}
-                  type="email"
-                  placeholder="Email"
-                  required
-                  className="bg-transparent px-4 py-3 rounded-md outline-none text-white placeholder:text-[var(--subtle)] transition-all focus:shadow-[0px_0px_5px_2px_#7cc1b7]"
-                  style={{ border: "1px solid var(--accent-fg)" }}
-                />
-                <input
-                  name="phone"
-                  value={form.phone}
-                  onChange={change}
-                  type="tel"
-                  placeholder="Phone Number"
-                  className="bg-transparent px-4 py-3 rounded-md outline-none text-white placeholder:text-[var(--subtle)] transition-all focus:shadow-[0px_0px_5px_2px_#7cc1b7]"
-                  style={{ border: "1px solid var(--accent-fg)" }}
-                />
-                <input
-                  name="subject"
-                  value={form.subject}
-                  onChange={change}
-                  type="text"
-                  placeholder="Subject"
-                  required
-                  className="bg-transparent px-4 py-3 rounded-md outline-none text-white placeholder:text-[var(--subtle)] transition-all focus:shadow-[0px_0px_5px_2px_#7cc1b7]"
-                  style={{ border: "1px solid var(--accent-fg)" }}
-                />
-              </div>
-
-              {/* Right: message + submit */}
-              <div className="flex flex-col w-full lg:w-1/2 gap-4">
-                <textarea
-                  name="message"
-                  value={form.message}
-                  onChange={change}
-                  rows={10}
-                  placeholder="Your Message"
-                  required
-                  className="bg-transparent px-4 py-3 rounded-md outline-none text-white placeholder:text-[var(--subtle)] resize-none transition-all focus:shadow-[0px_0px_5px_2px_#7cc1b7]"
-                  style={{ border: "1px solid var(--accent-fg)" }}
-                />
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full py-3 rounded-md font-semibold text-black transition-all duration-300 hover:bg-transparent hover:text-white hover:shadow-[0px_0px_8px_4px_#7cc1b7] disabled:opacity-60"
-                  style={{
-                    background:  loading ? "var(--accent-bg)" : "var(--accent-fg)",
-                    border:      "1px solid var(--accent-fg)",
-                    color:       loading ? "var(--accent-fg)" : "#000",
-                  }}
-                >
-                  {loading ? "Sending..." : "Submit"}
-                </button>
-              </div>
-
-            </form>
           )}
         </motion.div>
 

@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://your-portfolio-domain.com"),
+  metadataBase: new URL("https://daniyal-portfolio-alpha.vercel.app"),
   title: "Muhammad Daniyal — Full Stack Developer & AI/ML Engineer",
   description:
     "Professional portfolio of Muhammad Daniyal — Full Stack Developer specializing in Next.js, React, MERN Stack, Laravel, and AI/ML solutions. Available for freelance projects.",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     title: "Muhammad Daniyal — Full Stack Developer & AI/ML Engineer",
     description: "Professional portfolio showcasing web development, AI/ML, and SaaS projects.",
     type: "website",
-    url: "https://your-portfolio-domain.com",
+    url: "https://daniyal-portfolio-alpha.vercel.app",
     images: [
       {
         url: "/og-image.png",
@@ -61,10 +61,16 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} dark`}
+      className={`${geistSans.variable} ${geistMono.variable}`}
       suppressHydrationWarning
     >
       <body className="min-h-screen antialiased">
+        {/* Runs before paint to prevent flash of wrong theme */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme')||'dark';document.documentElement.classList.add(t);}catch(e){}})();`,
+          }}
+        />
         <a
           href="#home"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-md focus:text-black"

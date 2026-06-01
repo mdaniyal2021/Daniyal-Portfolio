@@ -37,10 +37,10 @@ export default function Education() {
           My Education
         </h2>
 
-        <div className="relative">
-          {/* Vertical centre line — desktop only */}
+        <div className="relative hidden md:block">
+          {/* Vertical centre line */}
           <div
-            className="absolute left-1/2 -translate-x-1/2 w-1 h-full z-0 hidden md:block"
+            className="absolute left-1/2 -translate-x-1/2 w-1 h-full z-0"
             style={{ background: "var(--accent-fg)" }}
           />
 
