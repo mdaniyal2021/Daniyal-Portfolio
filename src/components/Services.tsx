@@ -10,7 +10,7 @@ const servicesData = [
   { icon: "🤖", title: "Generative AI Solutions", desc: "Custom AI integrations, chatbots, and LLM-powered features for your product." },
   { icon: "🚀", title: "SaaS Application Development", desc: "Full SaaS products with auth, billing, dashboards, and multi-tenant architecture." },
   { icon: "🛒", title: "E-Commerce Solutions", desc: "Custom storefronts with cart, checkout, inventory management, and payment gateways." },
-  { icon: "🎓", title: "Student Capstone Projects", desc: "Complete final-year projects with documentation, presentation, and deployment support." },
+  { icon: "🎓", title: "Academic & Research Projects", desc: "End-to-end project development with documentation, architecture design, and deployment — for research and academic institutions." },
 ];
 
 export default function Services() {

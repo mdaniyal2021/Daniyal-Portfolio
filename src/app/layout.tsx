@@ -16,9 +16,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://daniyal-portfolio-alpha.vercel.app"),
-  title: "Muhammad Daniyal — Full Stack Developer & AI/ML Engineer",
+  title: "Muhammad Daniyal — Full Stack Developer & AI/ML Engineer | Pakistan",
   description:
-    "Professional portfolio of Muhammad Daniyal — Full Stack Developer specializing in Next.js, React, MERN Stack, Laravel, and AI/ML solutions. Available for freelance projects.",
+    "Professional portfolio of Muhammad Daniyal — Full Stack Developer based in Pakistan, available for remote work worldwide. Specializing in Next.js, React, MERN Stack, Laravel, and AI/ML solutions.",
   keywords: [
     "Full Stack Developer",
     "AI ML Engineer",

@@ -2,14 +2,13 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { FaLinkedin, FaGithub, FaInstagram, FaFacebook } from "react-icons/fa6";
+import { FaLinkedin, FaGithub, FaWhatsapp } from "react-icons/fa6";
 import Image from "next/image";
 
 const socialLinks = [
-  { icon: FaLinkedin,  url: "https://www.linkedin.com/in/muhammad-daniyal-5521a7294?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app", label: "LinkedIn" },
-  { icon: FaGithub,    url: "https://github.com/mdaniyal2021/", label: "GitHub" },
-  { icon: FaInstagram, url: "https://www.instagram.com/m.daniyal2021?igsh=aHRqd2JmZWxra2Zz&utm_source=qr", label: "Instagram" },
-  { icon: FaFacebook,  url: "https://www.facebook.com/share/16QABnjKNt/?mibextid=wwXIfr", label: "Facebook" },
+  { icon: FaLinkedin, url: "https://www.linkedin.com/in/muhammad-daniyal-5521a7294/", label: "LinkedIn" },
+  { icon: FaGithub,   url: "https://github.com/mdaniyal2021/",                        label: "GitHub" },
+  { icon: FaWhatsapp, url: "https://wa.me/923047671720",                               label: "WhatsApp" },
 ];
 
 export default function Hero() {

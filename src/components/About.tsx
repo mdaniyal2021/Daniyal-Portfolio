@@ -14,7 +14,7 @@ const expertise = [
   "Deep Learning Models",
   "SaaS Platform Development",
   "E-Commerce Solutions",
-  "Student Capstone Projects",
+  "Academic & Research Projects",
   "MySQL & MongoDB Design",
 ];
 
@@ -121,23 +121,24 @@ export default function About() {
           {/* Right — Expertise + Stats */}
           <div className="space-y-8">
             {/* Stats row */}
-            <motion.div className="grid grid-cols-3 gap-4" {...fade(0.1)}>
+            <motion.div className="grid grid-cols-3 gap-4 mt-2" {...fade(0.1)}>
               {[
-                { value: "50+", label: "Projects", sub: "shipped" },
-                { value: "3+",  label: "Years",    sub: "experience" },
-                { value: "100%", label: "Client",   sub: "satisfaction" },
+                { value: "50+",  label: "Projects",     sub: "shipped" },
+                { value: "3+",   label: "Years",        sub: "experience" },
+                { value: "100%", label: "Satisfaction", sub: "guaranteed" },
               ].map((s) => (
                 <div
                   key={s.label}
                   className="card p-5 text-center"
+                  style={{ borderColor: "var(--accent-border)" }}
                 >
                   <div
-                    className="text-2xl font-bold tracking-tight mb-1"
+                    className="text-4xl font-bold tracking-tight mb-1"
                     style={{ color: "var(--accent-fg)" }}
                   >
                     {s.value}
                   </div>
-                  <div className="text-xs font-semibold" style={{ color: "var(--text)" }}>
+                  <div className="text-xs font-semibold uppercase tracking-wide" style={{ color: "var(--text)" }}>
                     {s.label}
                   </div>
                   <div className="text-xs mt-0.5" style={{ color: "var(--subtle)" }}>

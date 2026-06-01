@@ -56,7 +56,7 @@ export const projects: Project[] = [
     category: "SaaS",
     technologies: ["Next.js", "Node.js", "MongoDB", "Express.js", "Tailwind"],
     github: "https://github.com/mdaniyal2021/SaaS-BAR-POS",
-    status: "Live",
+    status: "Completed",
     featured: true,
     image: "/images/thumb_5_pos.png",
   },
