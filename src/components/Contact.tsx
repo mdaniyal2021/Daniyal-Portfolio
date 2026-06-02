@@ -68,84 +68,85 @@ export default function Contact() {
             Contact
           </h2>
 
-          <form onSubmit={submit} className="flex flex-col lg:flex-row gap-8">
+          <form onSubmit={submit} className="flex flex-col gap-8">
 
-            {/* Left: labeled input fields */}
-            <div className="flex flex-col w-full lg:w-1/2 gap-5">
+            {/* 2-column input layout */}
+            <div className="flex flex-col lg:flex-row gap-8">
 
-              <div>
-                <label htmlFor="name" className={labelStyle} style={{ color: "var(--muted)" }}>
-                  Full Name <span style={{ color: "var(--accent-fg)" }}>*</span>
-                </label>
-                <input
-                  id="name"
-                  name="name"
-                  value={form.name}
-                  onChange={change}
-                  type="text"
-                  placeholder="e.g. Muhammad Ali"
-                  required
-                  className={fieldStyle}
-                  style={{ border: "1px solid var(--accent-fg)", color: "var(--text)" }}
-                />
+              {/* Left: labeled input fields */}
+              <div className="flex flex-col w-full lg:w-1/2 gap-5">
+
+                <div>
+                  <label htmlFor="name" className={labelStyle} style={{ color: "var(--muted)" }}>
+                    Full Name <span style={{ color: "var(--accent-fg)" }}>*</span>
+                  </label>
+                  <input
+                    id="name"
+                    name="name"
+                    value={form.name}
+                    onChange={change}
+                    type="text"
+                    placeholder="e.g. Muhammad Ali"
+                    required
+                    className={fieldStyle}
+                    style={{ border: "1px solid var(--accent-fg)", color: "var(--text)" }}
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="email" className={labelStyle} style={{ color: "var(--muted)" }}>
+                    Email Address <span style={{ color: "var(--accent-fg)" }}>*</span>
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    value={form.email}
+                    onChange={change}
+                    type="email"
+                    placeholder="you@example.com"
+                    required
+                    className={fieldStyle}
+                    style={{ border: "1px solid var(--accent-fg)", color: "var(--text)" }}
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="phone" className={labelStyle} style={{ color: "var(--muted)" }}>
+                    Phone Number <span style={{ color: "var(--subtle)", fontSize: "11px" }}>(optional)</span>
+                  </label>
+                  <input
+                    id="phone"
+                    name="phone"
+                    value={form.phone}
+                    onChange={change}
+                    type="tel"
+                    placeholder="+92 300 0000000"
+                    className={fieldStyle}
+                    style={{ border: "1px solid var(--accent-fg)", color: "var(--text)" }}
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="subject" className={labelStyle} style={{ color: "var(--muted)" }}>
+                    Subject <span style={{ color: "var(--accent-fg)" }}>*</span>
+                  </label>
+                  <input
+                    id="subject"
+                    name="subject"
+                    value={form.subject}
+                    onChange={change}
+                    type="text"
+                    placeholder="e.g. Project Inquiry"
+                    required
+                    className={fieldStyle}
+                    style={{ border: "1px solid var(--accent-fg)", color: "var(--text)" }}
+                  />
+                </div>
+
               </div>
 
-              <div>
-                <label htmlFor="email" className={labelStyle} style={{ color: "var(--muted)" }}>
-                  Email Address <span style={{ color: "var(--accent-fg)" }}>*</span>
-                </label>
-                <input
-                  id="email"
-                  name="email"
-                  value={form.email}
-                  onChange={change}
-                  type="email"
-                  placeholder="you@example.com"
-                  required
-                  className={fieldStyle}
-                  style={{ border: "1px solid var(--accent-fg)", color: "var(--text)" }}
-                />
-              </div>
-
-              <div>
-                <label htmlFor="phone" className={labelStyle} style={{ color: "var(--muted)" }}>
-                  Phone Number <span style={{ color: "var(--subtle)", fontSize: "11px" }}>(optional)</span>
-                </label>
-                <input
-                  id="phone"
-                  name="phone"
-                  value={form.phone}
-                  onChange={change}
-                  type="tel"
-                  placeholder="+92 300 0000000"
-                  className={fieldStyle}
-                  style={{ border: "1px solid var(--accent-fg)", color: "var(--text)" }}
-                />
-              </div>
-
-              <div>
-                <label htmlFor="subject" className={labelStyle} style={{ color: "var(--muted)" }}>
-                  Subject <span style={{ color: "var(--accent-fg)" }}>*</span>
-                </label>
-                <input
-                  id="subject"
-                  name="subject"
-                  value={form.subject}
-                  onChange={change}
-                  type="text"
-                  placeholder="e.g. Project Inquiry"
-                  required
-                  className={fieldStyle}
-                  style={{ border: "1px solid var(--accent-fg)", color: "var(--text)" }}
-                />
-              </div>
-
-            </div>
-
-            {/* Right: message + submit */}
-            <div className="flex flex-col w-full lg:w-1/2 gap-5">
-
-              <div className="flex flex-col flex-1">
+              {/* Right: message */}
+              <div className="flex flex-col w-full lg:w-1/2">
                 <label htmlFor="message" className={labelStyle} style={{ color: "var(--muted)" }}>
                   Message <span style={{ color: "var(--accent-fg)" }}>*</span>
                 </label>
@@ -162,20 +163,21 @@ export default function Contact() {
                 />
               </div>
 
-              <button
-                type="submit"
-                disabled={loading}
-                className="w-full py-3 rounded-md font-semibold transition-all duration-300 hover:bg-transparent hover:shadow-[0px_0px_8px_4px_#7cc1b7] disabled:opacity-60"
-                style={{
-                  background: loading ? "var(--accent-bg)" : "var(--accent-fg)",
-                  border:     "1px solid var(--accent-fg)",
-                  color:      loading ? "var(--accent-fg)" : "#000",
-                }}
-              >
-                {loading ? "Sending…" : "Send Message"}
-              </button>
-
             </div>
+
+            {/* Full-width submit button below both columns */}
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full py-3 rounded-md font-semibold transition-all duration-300 disabled:opacity-60"
+              style={{
+                background: loading ? "var(--accent-bg)" : "var(--accent-fg)",
+                border:     "1.5px solid var(--accent-fg)",
+                color:      loading ? "var(--accent-fg)" : "#000",
+              }}
+            >
+              {loading ? "Sending…" : "Send Message"}
+            </button>
 
           </form>
 

@@ -52,17 +52,17 @@ export default function About() {
             </motion.h2>
 
             <motion.div
-              className="space-y-4 text-base leading-relaxed mb-8"
+              className="text-base leading-relaxed mb-8"
               style={{ color: "var(--muted)" }}
               {...fade(0.1)}
             >
-              <p>
+              <p className="mb-5">
                 I&apos;m a Full Stack Developer and AI/ML Engineer with 3+ years of experience
                 turning complex requirements into production-ready software. I work across the
                 entire stack — from crafting clean UIs in React to architecting scalable Node.js
                 and Laravel backends.
               </p>
-              <p>
+              <p className="mb-5">
                 My AI work includes real projects: bacterial image classification with CNNs,
                 NLP-based fake news detection, and deep learning pipelines deployed in research
                 settings. I don&apos;t just build for the demo — I build for real use.
@@ -130,7 +130,7 @@ export default function About() {
                 <div
                   key={s.label}
                   className="card p-5 text-center"
-                  style={{ borderColor: "var(--accent-border)" }}
+                  style={{ borderColor: "var(--accent-border)", background: "var(--bg)" }}
                 >
                   <div
                     className="text-4xl font-bold tracking-tight mb-1"
